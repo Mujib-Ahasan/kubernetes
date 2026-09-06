@@ -114,10 +114,8 @@ func NewTopPodFlags(streams genericiooptions.IOStreams) *TopPodFlags {
 	}
 }
 
-func NewCmdTopPod(f cmdutil.Factory, flags *TopPodFlags, streams genericiooptions.IOStreams) *cobra.Command {
-	if flags == nil {
-		flags = NewTopPodFlags(streams)
-	}
+func NewCmdTopPod(f cmdutil.Factory, streams genericiooptions.IOStreams) *cobra.Command {
+	flags := NewTopPodFlags(streams)
 
 	cmd := &cobra.Command{
 		Use:                   "pod [NAME | -l label]",

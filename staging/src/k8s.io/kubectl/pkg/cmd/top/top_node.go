@@ -90,10 +90,8 @@ func NewTopNodeFlags(streams genericiooptions.IOStreams) *TopNodeFlags {
 	}
 }
 
-func NewCmdTopNode(f cmdutil.Factory, flags *TopNodeFlags, streams genericiooptions.IOStreams) *cobra.Command {
-	if flags == nil {
-		flags = NewTopNodeFlags(streams)
-	}
+func NewCmdTopNode(f cmdutil.Factory, streams genericiooptions.IOStreams) *cobra.Command {
+	flags := NewTopNodeFlags(streams)
 
 	cmd := &cobra.Command{
 		Use:                   "node [NAME | -l label]",
